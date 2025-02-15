@@ -1,8 +1,11 @@
-import express from "express";
+ import express from "express";
 import cors from "cors";
 import WohozoRoutes from "./routes/wohozo.route.js";
 import connectDB from "./lib/db.js";
 import bodyParser from "body-parser";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 // const formRoutes = require("./routes/router");
 const app = express();
@@ -11,7 +14,7 @@ const PORT = 6969;
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.HOST_URL,
   })
 );
 
